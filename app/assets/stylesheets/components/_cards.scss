@@ -1,0 +1,19 @@
+.card {
+  position: relative;
+  margin: 5px;
+  padding: 5px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.card a {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}

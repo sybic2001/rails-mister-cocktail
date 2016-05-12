@@ -1,7 +1,13 @@
-<h1>Mes cocktails</h1>
-<ul class="list-group">
-<% @cocktails.each do |cocktail| %>
-  <%= link_to cocktail.name, cocktail_path(cocktail), class:'list-group-item' %>
-<% end %>
-</ul>
-<%= link_to "Nouveau cocktail", new_cocktail_path, class: 'btn btn-primary' %>
+<div class="container">
+  <h1 class="text-center">Mes cocktails
+  <%= link_to "Nouveau cocktail", new_cocktail_path, class: 'btn btn-success' %></h1>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-3">
+        <div class="card" style="background-image: url(<%= image_path("#{cocktail.name.downcase.gsub(" ", "-")}.jpg") %>);" %>
+          <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
