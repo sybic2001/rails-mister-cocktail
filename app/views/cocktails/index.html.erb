@@ -1,0 +1,6 @@
+<h1>Mes cocktails</h1>
+<ul class="list-group">
+<% @cocktails.each do |cocktail| %>
+  <%= link_to cocktail.name, cocktail_path(cocktail), class:'list-group-item' %>
+<% end %>
+</ul>
