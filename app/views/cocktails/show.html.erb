@@ -1,3 +1,15 @@
 <h1><%= @cocktail.name %></h1>
 
-<%= link_to cocktails_path, class='btn btn-primary' %>
+<ul class="list-group">
+  <% @cocktail.doses.each do |dose| %>
+    <li class="list-group-item"><%= "#{dose.ingredient.name} : #{dose.description}" %></li>
+  <% end %>
+</ul>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :ingredient, collection: @ingredients, prompt: "Choisis un ingrédient" %>
+  <%= f.input :description %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to "Menu", cocktails_path, class:'btn btn-primary' %>
