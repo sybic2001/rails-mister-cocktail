@@ -1,24 +1,31 @@
 <div class="wrapper" style="background-image: url(<%= image_path("#{@cocktail.name.downcase.gsub(" ", "-")}.jpg") %>);">
-  <div class="container">
+<div class="container">
   <h1><%= @cocktail.name %>
   <%= link_to "Menu", cocktails_path, class:'btn btn-primary btn-primary-wrapper' %></h1>
-  </div>
+</div>
 </div>
 <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <ul class="list-group">
+        <% @cocktail.doses.each do |dose| %>
+          <li class="list-group-item"><%= "#{dose.ingredient.name} : #{dose.description}" %>
+            <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do %>
+              <i class="fa fa-times pull-right" aria-hidden="true"></i>
+            <% end %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="ingredient-creator">
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <%= f.input :ingredient, collection: @ingredients, prompt: "Choisis un ingrédient" %>
+          <%= f.input :description %>
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<ul class="list-group">
-  <% @cocktail.doses.each do |dose| %>
-    <li class="list-group-item"><%= "#{dose.ingredient.name} : #{dose.description}" %>
-      <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do %>
-        <i class="fa fa-times pull-right" aria-hidden="true"></i>
-      <% end %></li>
-  <% end %>
-</ul>
-
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :ingredient, collection: @ingredients, prompt: "Choisis un ingrédient" %>
-  <%= f.input :description %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-<% end %>
 
 </div>
