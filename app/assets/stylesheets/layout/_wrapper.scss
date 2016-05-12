@@ -1,1 +1,17 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  transition: 0.2s;
+}
 
+.wrapper h1 {
+  color: white;
+}
+
+.btn-primary-wrapper {
+  background-color: rgba(35,129,208,0.5);
+  width: 150px;
+}
