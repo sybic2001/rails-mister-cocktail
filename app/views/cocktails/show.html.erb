@@ -2,6 +2,17 @@
 <div class="container">
   <h1><%= @cocktail.name %>
   <%= link_to "Menu", cocktails_path, class:'btn btn-primary btn-primary-wrapper' %></h1>
+  <div class="rating-show">
+    <% @cocktail.rating.round.times do %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+    <% end %>
+    <% (5 - @cocktail.rating.round).times do %>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+    <% end %>
+  </div>
+  <div class="rating-show">
+    <%="(#{@cocktail.votes} votes)" %>
+  </div>
 </div>
 </div>
 <div class="container">
@@ -20,7 +31,7 @@
       <div class="rating-content">
         <h2 class='text-center'>Note le !</h2>
         <%= simple_form_for @cocktail do |f| %>
-          <%= f.hidden_field :rating %>
+          <%= f.hidden_field :rating, value: 0 %>
           <div class="text-center">
           <i class='fa fa-star rating' id="1" aria-hidden='true'></i>
           <i class='fa fa-star rating' id="2" aria-hidden='true'></i>
@@ -50,19 +61,18 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('.rating').on('click', function(){
-      $('#cocktail_rating').val(this.id)
-    });
-    $('.rating')
-      .mouseover(function(){
+      if ($('#cocktail_rating').val() === this.id ) {
         for (i = 1 ; i <= this.id ; i += 1){
-          $('#' + i).addClass('rating-yellow');
-        }
-      }).mouseout(function(){
-        $('.rating').removeClass('rating-yellow');
-        var stars = $('#cocktail_rating').val();
-        for (i = 1 ; i <= stars ; i += 1){
-          $('#' + i).addClass('rating-yellow');
-        }
-      });
+          $('#' + i).toggleClass('rating-yellow');
+        };
+        $('#cocktail_rating').val(0);
+      } else {
+      $('.rating').removeClass('rating-yellow');
+      $('#cocktail_rating').val(this.id)
+      for (i = 1 ; i <= this.id ; i += 1){
+        $('#' + i).addClass('rating-yellow');
+      }
+      }
+    });
   });
 </script>

@@ -37,6 +37,7 @@
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
+  text-shadow: 0 0 2px rgba(0,0,0,0.8);
 }
 
 .card-link {
@@ -56,11 +57,27 @@
   }
 }
 
-.rating i {
+.rating.fa {
   color: #DFDFDF;
 }
 
-.rating-yellow i {
+.rating-yellow.fa {
+  color: #005E27;
+}
+
+.rating-green.fa {
   color: #61C28B;
 }
 
+.delete {
+  position : absolute;
+  top: 10px;
+  right: 13px;
+  .fa {
+    font-size: 14px;
+    color: white;
+    &:hover {
+      color: #F40000;
+    }
+  }
+}

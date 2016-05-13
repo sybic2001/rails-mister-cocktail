@@ -17,6 +17,11 @@
             <div class="votes">
               <%="(#{cocktail.votes} votes)" %>
             </div>
+            <div class="delete">
+              <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: "Etes vous sûr ?" } do %>
+                <i class="fa fa-times" aria-hidden="true"></i>
+              <% end %>
+            </div>
           </div>
       </div>
     <% end %>
