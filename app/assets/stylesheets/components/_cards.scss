@@ -14,6 +14,22 @@
   &:hover {
     opacity: 0.7;
   }
+  .rating {
+    position: absolute;
+    bottom: 10px;
+    right : 20px;
+    .fa {
+      color: white;
+    }
+  }
+  .votes {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+  }
 }
 
 .card a {
@@ -39,3 +55,12 @@
     color: #DE0000;
   }
 }
+
+.rating i {
+  color: #DFDFDF;
+}
+
+.rating-yellow i {
+  color: #61C28B;
+}
+

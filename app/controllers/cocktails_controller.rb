@@ -22,6 +22,15 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def update
+    @cocktail = Cocktail.find(params[:id])
+    new_rating = ((@cocktail.votes * @cocktail.rating) + params[:cocktail][:rating].to_i) / (@cocktail.votes + 1)
+    @cocktail.votes += 1
+    @cocktail.rating = new_rating
+    @cocktail.save
+    redirect_to cocktail_path(@cocktail)
+  end
+
   private
 
   def cocktail_params
