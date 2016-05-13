@@ -1,4 +1,4 @@
-<div class="wrapper" style="background-image: url(<%= image_path("#{@cocktail.name.downcase.gsub(" ", "-")}.jpg") %>);">
+<div class="wrapper" style="background-image: url(<%= @cocktail.photo? ? cl_image_path(@cocktail.photo.path) : image_path("#{@cocktail.name.downcase.gsub(" ", "-")}.jpg") %>);">
 <div class="container">
   <h1><%= @cocktail.name %>
   <%= link_to "Menu", cocktails_path, class:'btn btn-primary btn-primary-wrapper' %></h1>
