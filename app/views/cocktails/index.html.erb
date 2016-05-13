@@ -4,10 +4,11 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-3">
-          <div class="card" style="background-image: url(<%= image_path("#{cocktail.name.downcase.gsub(" ", "-")}.jpg") %>);" %>
+          <div class="card" style="background-image: url(<%= cocktail.photo? ? cl_image_path(cocktail.photo.path) : image_path("#{cocktail.name.downcase.gsub(" ", "-")}.jpg") %>);" %>
             <%= link_to cocktail.name, cocktail_path(cocktail), class:'card-link' %>
           </div>
       </div>
     <% end %>
   </div>
 </div>
+
