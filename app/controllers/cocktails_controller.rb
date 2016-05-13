@@ -7,7 +7,7 @@ class CocktailsController < ApplicationController
   def show
     @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.where.not(id: @cocktail.doses.map(&:ingredient_id))
   end
 
   def create
