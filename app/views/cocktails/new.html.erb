@@ -1,9 +1,0 @@
-<div class="container">
-<h1>Créez un super cocktail ! &nbsp;<%= link_to "Menu", cocktails_path, class:'btn btn-primary' %></h1>
-
-<%= simple_form_for (@cocktail) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :attachinary %>
-  <%= f.button :submit, class: 'btn btn-success' %>
-<% end %>
-</div>

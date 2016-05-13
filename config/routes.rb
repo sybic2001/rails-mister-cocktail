@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   mount Attachinary::Engine => "/attachinary"
 
-  resources :cocktails, only: [:index, :show, :new, :create, :update, :destroy] do
+  resources :cocktails, only: [:index, :show, :create, :update, :destroy] do
     resources :doses, only: [:new, :create, :destroy]
   end
   # The priority is based upon order of creation: first created -> highest priority.
