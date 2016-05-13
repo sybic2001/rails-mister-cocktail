@@ -31,6 +31,9 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'figaro'
+gem 'cloudinary'
+gem "attachinary"
+gem "jquery-fileupload-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
