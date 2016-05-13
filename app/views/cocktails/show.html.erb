@@ -1,7 +1,6 @@
 <div class="wrapper" style="background-image: url(<%= @cocktail.photo? ? cl_image_path(@cocktail.photo.path) : image_path("#{@cocktail.name.downcase.gsub(" ", "-")}.jpg") %>);">
 <div class="container">
-  <h1><%= @cocktail.name %>
-  <%= link_to "Menu", cocktails_path, class:'btn btn-primary btn-primary-wrapper pull-right' %></h1>
+  <h1><%= @cocktail.name %></h1>
   <div class="rating-show">
     <% @cocktail.rating.round.times do %>
       <i class="fa fa-star" aria-hidden="true"></i>
@@ -40,7 +39,7 @@
           <i class='fa fa-star rating' id="5" aria-hidden='true'></i>
           <br>
           <br>
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.button :submit, class: "btn btn-success" %>
           </div>
         <% end %>
       </div>
@@ -50,7 +49,7 @@
         <%= simple_form_for [@cocktail, @dose] do |f| %>
           <%= f.input :ingredient, collection: @ingredients, prompt: "Choisis un ingrédient" %>
           <%= f.input :description %>
-          <%= f.button :submit, class: 'btn btn-primary' %>
+          <%= f.button :submit, class: 'btn btn-success' %>
         <% end %>
       </div>
     </div>

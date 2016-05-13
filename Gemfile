@@ -35,6 +35,7 @@ gem 'cloudinary'
 gem "attachinary"
 gem "jquery-fileupload-rails"
 gem 'responders', '~> 2.0'
+gem 'sweet-alert'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

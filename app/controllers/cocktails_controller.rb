@@ -1,6 +1,6 @@
 class CocktailsController < ApplicationController
   def index
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.all.reorder(:rating).reverse_order
     @cocktail = Cocktail.new
   end
 
